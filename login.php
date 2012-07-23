@@ -34,6 +34,15 @@
 
 <!-- new table for showing the multiple server info -->				
 						<table cellspacing="0" cellpadding="0" class="content">
+							<?php
+							
+							if(isset($_SESSION['authfail'])){
+								if($_SESSION['authfail'] = 1){
+								echo '<tr><td><div class="subtitle">Login Failed, Please try Again</div><br></td></tr>';
+								}
+							}												
+							?>						
+						
 							<tr><td><div class="title">Please Login<Br><br></div></td></tr>
 							<tr><td><div>
 							<form name="login" method="post" action="utilprogs/checklogin.php">

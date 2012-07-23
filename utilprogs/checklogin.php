@@ -18,13 +18,14 @@ if($results != null){
 	$regrights=$results['accesslevel'];
 	$_SESSION['username'] = $regname;
 	$_SESSION['rights'] = $regrights;
-
-	echo '<a href="../index.php">sessions set</a>';
+	$_SESSION['authfail'] = 0;
+	header("location:../index.php");
 
 }
 else{
 
-	echo "not a registered user or username / password is incorrect";
+	$_SESSION['authfail'] = 1;
+	header("location:../login.php");
 
 }
 

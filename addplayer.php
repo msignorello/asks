@@ -48,8 +48,12 @@ if(isset($_POST['submit'])) {
 	$firstname = trim($_POST['first']);
 	$lastname = trim($_POST['last']);
 	$initials = trim($_POST['initial']);
+	$username = trim($_POST['username']);
+	$password = trim($_POST['password']);
+	$email = trim($_POST['email']);
+	$rights = trim($_POST['rights']);
 	
-$query="INSERT INTO players(player_first,player_last,player_initials) VALUES ('$firstname','$lastname','$initials')";
+$query="INSERT INTO players(player_first,player_last,player_initials,username,password,email,accesslevel) VALUES ('$firstname','$lastname','$initials','$username','$password','$email','$rights')";
 
 if (!mysql_query($query)){
 	die('Error: ' . mysql_error());
@@ -64,6 +68,15 @@ echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=playerlist.php">';
 	<div>First Name: <input type="text" name="first"/></div>
 	<div>Last Name: <input type="text" name="last"/></div>
 	<div>Highscore Initials: <input type="text" name="initial"/></div>
+	<br>
+	<div>Desired Username: <input type="text" name="username"/></div>
+   <div>Password: <input type="password" name="password"/></div>
+   <div>Email Address: <input type="text" name="email"/></div>
+   <br>
+   <div>Site Admin - 
+   	<br>Yes: <input type="radio" name="rights" value="admin">
+   	<br>No: <input type="radio" name="rights" value="player" checked>
+   </div>
   <input type="submit" name="submit" value="Submit"/>
 </form>
 
