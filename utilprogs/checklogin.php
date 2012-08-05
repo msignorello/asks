@@ -15,10 +15,25 @@ $results = mysql_fetch_array( $query );
 if($results != null){
 	
 	$regname=$results['player_first'];
+	$pid=$results['playerid'];
 	$regrights=$results['accesslevel'];
+	
+//
+// if this is an admin keep the id seperate
+//
+	if($regrights=="admin") {$_SESSION["adminID"]=$pid;} else {$_SESSION["adminID"]="";}	
+	
 	$_SESSION['username'] = $regname;
 	$_SESSION['rights'] = $regrights;
+	$_SESSION['pid'] = $pid;
 	$_SESSION['authfail'] = 0;
+
+// set session DB variables. 	
+	$_SESSION['db'] = $db;
+	$_SESSION['dbuser'] = $dbuser;
+	$_SESSION['dbpass'] = $dbpass;
+	$_SESSION['dbhost'] = $dbhost;
+
 	header("location:../index.php");
 
 }

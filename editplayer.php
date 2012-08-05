@@ -44,12 +44,22 @@
 
 include("includes/sqlconnect.inc");
 
+echo "loook  ".$_SESSION["adminID"]."    ".$_SESSION["pid"];
+//exit;
+
+
 if(!isset($_SESSION['pid'])){
 	header("location:login.php");
-}elseif(isset($_SESSION['editpid'])) {
-	$pid = $_SESSION['editpid'];
-}else{
-	$pid = $_SESSION['pid'];
+}
+
+if(isset($_REQUEST["mode"])){
+	$pid = $_SESSION["pid"];
+	} else {
+     if($_SESSION["adminID"]!=""){
+		$pid  = $_SESSION["adminID"];
+		}else{
+		$pid = $_SESSION['pid'];
+		}
 }
 
    $sql="SELECT * FROM players WHERE playerid = ".$pid;
@@ -80,18 +90,21 @@ if(!isset($_SESSION['pid'])){
    				<br>
    				<?php 
    				if($_SESSION['rights'] == "admin"){
-   					echo "<div>Site Admin -" ;
-   					if($editshowrights == "admin"){
-   						echo '<br>Yes: <input type="radio" name="rights" value="admin" checked>';
-   					}else{
-   						echo '<br>Yes: <input type="radio" name="rights" value="admin">';
-   					}
-   					if($editshowrights == "player"){
-   						echo '<br>No: <input type="radio" name="rights" value="player" checked>';
-   					}else{
-   						echo '<br>No: <input type="radio" name="rights" value="player">';
-   					}
-   						echo "</div>";
+   						echo "<div>Site Admin -" ;
+   						if($editshowrights == "admin"){
+   							echo '<br>Yes: <input type="radio" name="rights" value="admin" checked>';
+   						}else{
+   							echo '<br>Yes: <input type="radio" name="rights" value="admin">';
+   						}
+   						if($editshowrights == "player"){
+   							echo '<br>No: <input type="radio" name="rights" value="player" checked>';
+   						}else{
+   							echo '<br>No: <input type="radio" name="rights" value="player">';
+   						}
+   							echo "</div>";
+   						}
+   					else{
+   					echo '<input type="hidden" name="rights" value="player">';
    					}
    				?>
   					<input type="submit" name="editplayer" value="Submit"/>
@@ -109,19 +122,39 @@ if(isset($_POST['editplayer'])) {
 	$email = trim($_POST['email']);
 	$rights = trim($_POST['rights']);
 	
-	$query="INSERT INTO players(player_first,player_last,player_initials,username,password,email,accesslevel) VALUES ('$firstname','$lastname','$initials','$username','$password','$email','$rights') WHERE playerid = ".$pid;
+//	$query="INSERT INTO players(player_first,player_last,player_initials,username,password,email,accesslevel) VALUES ('$firstname','$lastname','$initials','$username','$password','$email','$rights') WHERE playerid = ".$pid;
+
+$query  = "update players set ";
+ 
+$query .= " player_first='".$firstname."' , ";
+ 
+$query .= " player_last='".$lastname."' , ";
+ 
+$query .= " player_initials='".$initials."' , ";
+ 
+$query .= " username='".$username."' , ";
+ 
+$query .= " password='".$password."' , ";
+ 
+$query .= " email='".$email."' , ";
+ 
+$query .= " accesslevel='".$rights."'  ";
+ 
+$query .= " where playerid ='".$pid."'";
 
 
 	if (!mysql_query($query)){
 		die('Error: ' . mysql_error());
-	}{
-	mysql_query($query2);
-
 	}
-
-	//header("location:playerlist.php");
+	
+	if ($rights == "admin"){
+		$_SESSION['admineditpid'] = NULL;
+		header("location:adminsettings.php");
+	}else{
+		$_SESSION['admineditpid'] = NULL;
+		header("location:playerlist.php");
 	}
-
+}
 ?>
 
 							</td></tr></div>

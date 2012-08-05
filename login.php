@@ -37,9 +37,11 @@
 							<?php
 							
 							if(isset($_SESSION['authfail'])){
-								if($_SESSION['authfail'] = 1){
+								if($_SESSION['authfail'] == 1){
 								echo '<tr><td><div class="subtitle">Login Failed, Please try Again</div><br></td></tr>';
-								}
+								}elseif($_SESSION['authfail'] == 2){
+								echo '<tr><td><div class="subtitle">You do not have admin rights, please login as an Admin</div><br></td></tr>'; 
+								}							
 							}												
 							?>						
 						

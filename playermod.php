@@ -2,7 +2,7 @@
 
 session_start();
 
-include("../includes/adminconnect.inc");
+include("includes/adminconnect.inc");
 
 switch ($_POST['playeroption']){
 		case "Delete":
@@ -17,12 +17,13 @@ switch ($_POST['playeroption']){
 			mysql_query($query2);
 
 		}
-
+		header("location:adminsettings.php");
 		break;
 
 		case "Edit":
-		$_SESSION['editpid'] = $_POST['edit']; 
-		header("location:editplayer.php");
+		
+		$_SESSION['pid'] = $_POST['edit'];
+		header("location:editplayer.php?mode=player");
 		break;
 
 }

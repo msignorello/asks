@@ -34,7 +34,7 @@
 
 <!-- new table for showing the multiple server info -->				
 						<table span="100%" cellspacing="0" cellpadding="0" border="0" class="content">
-							
+						<?php include("includes/adminconnect.inc"); ?>				
 							<tr><td><div class="title">Site Settings<Br></div></td></tr>
 							<tr><td><div class="subtitle">You will be able to modify certain aspects of the site through this page as well as upload your own logo image. </div><br></td></tr>
 
