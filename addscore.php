@@ -90,6 +90,7 @@ if(isset($_POST['submit'])) {
 	$score = trim($_POST['playerscore']);
 	$game = trim($_POST['gamename']);
 	$player = trim($_POST['playername']);
+	$score = str_replace(",","",$score);
 	
 	if($_POST['gamename'] = null){die('Error: No null scores allowed');break;} elseif($_POST['playername'] = null){die('error no null scores allowed');break;}
 			
