@@ -80,6 +80,9 @@ while($row = mysql_fetch_array( $games )){
 <br>
 Score: 
 <input type="text" name="playerscore"/>
+<br>
+Date (MM/DD/YYYY): 
+<input type="text" name="date"/>
 <input type="submit" name="submit" value="Submit"/>
 
 </form>
@@ -91,10 +94,11 @@ if(isset($_POST['submit'])) {
 	$game = trim($_POST['gamename']);
 	$player = trim($_POST['playername']);
 	$score = str_replace(",","",$score);
+	$date = str_replace("-","/",$_POST['date']);
 	
 	if($_POST['gamename'] = null){die('Error: No null scores allowed');break;} elseif($_POST['playername'] = null){die('error no null scores allowed');break;}
 			
-else{$query="INSERT INTO scores(score,gameid,playerid) VALUES ('$score','$game','$player')";}
+else{$query="INSERT INTO scores(score,gameid,playerid,date) VALUES ('$score','$game','$player','$date')";}
 
 if (!mysql_query($query)){
 	die('Error: ' . mysql_error());
