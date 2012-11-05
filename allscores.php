@@ -42,7 +42,7 @@
 
 include("includes/sqlconnect.inc");
 
-$allscores = mysql_query("SELECT scores.score AS score,players.player_initials AS player_initials,games.gamename AS gamename from ((games join scores on((games.gameid = scores.gameid))) join players on((players.playerid = scores.playerid)))") or die(mysql_error());
+$allscores = mysql_query("SELECT scores.score AS score,scores.date as date,players.player_initials AS player_initials,games.gamename AS gamename from ((games join scores on((games.gameid = scores.gameid))) join players on((players.playerid = scores.playerid)))") or die(mysql_error());
 
 //Below is a more straightforward query compared to above.... but for some reason something is broken and I need to fid the query to show duplicate game results for a given person. 
 //$allscores = mysql_query("select * from scores,players,games where scores.playerid = players.playerid and scores.gameid = games.gameid group by scores.playerid ,scores.gameid") or die(mysql_error());
@@ -50,17 +50,19 @@ $allscores = mysql_query("SELECT scores.score AS score,players.player_initials A
 
 
 echo '<table cellpadding="0" class="content" cellspacing="0" width="100%" >';
-echo '<tr><th>Player</th><th>Game</th><th>Score</th></tr>';
+echo '<tr><th>Player</th><th>Game</th><th>Score</th><th>Date</th></tr>';
 
 while($row = mysql_fetch_array( $allscores )){
 
 $player=$row['player_initials'];
 $game=$row['gamename'];
 $score=$row['score'];
+$date=$row['date'];
 	echo "<tr>";
 		echo '<td>'.$player.'</td>';
 		echo '<td>'.$game.'</td>';
-		echo '<td>'.$score.'</td>';	
+		echo '<td>'.$score.'</td>';
+		echo '<td>'.$date.'</td>';	
 	echo "</tr>";
 }
 
