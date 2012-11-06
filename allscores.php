@@ -61,7 +61,7 @@ $date=$row['date'];
 	echo "<tr>";
 		echo '<td>'.$player.'</td>';
 		echo '<td>'.$game.'</td>';
-		echo '<td>'.$score.'</td>';
+		echo '<td>'.number_format($score).'</td>';
 		echo '<td>'.$date.'</td>';	
 	echo "</tr>";
 }
