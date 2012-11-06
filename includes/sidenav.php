@@ -18,6 +18,7 @@
          <ul>
 	      <li><a href="allscores.php">All Scores</a></li>
 	      <li><a href="selectreport.php">Run Custom Query</a></li>
+	<li><a href="highscores.php">High Scores</a></li>
 	      <li>Top 3 Per Game</li>
          </ul>
          </div>
