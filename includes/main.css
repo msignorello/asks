@@ -39,6 +39,12 @@ table.content th{
 	text-align: left;
 }
 
+div.header {
+	font-family: arial;
+	color: black;
+	font-size: 12px;
+}
+
 div.navigation {
 	font-family: arial;
 	color: black;
@@ -77,6 +83,14 @@ div.subunderline {
 
 }
 
+div.bigsubunderline {
+	text-decoration:underline;
+	font-family: arial;
+	color: black;
+	font-style:italic;
+	font-size: 12px;
+}
+
 div.mainbody {
 	font-family: arial;
 	color: black;
@@ -87,4 +101,17 @@ div.warning {
 	font-family: arial;
 	color: red;
 	font-size: 10px;
+}
+
+div.notice {
+	font-family: arial;
+	color: green;
+	font-size: 10px;
+}
+
+div.bigwarning {
+	font-family: arial;
+	color: red;
+	font-weight: bold;
+	font-size: 12px;
 }
