@@ -73,10 +73,27 @@ echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=playerlist.php">';
    <div>Password: <input type="password" name="password"/></div>
    <div>Email Address: <input type="text" name="email"/></div>
    <br>
-   <div>Site Admin - 
-   	<br>Yes: <input type="radio" name="rights" value="admin">
-   	<br>No: <input type="radio" name="rights" value="player" checked>
-   </div>
+   
+   <?php
+        if(isset($_SESSION['rights'])){
+                if($_SESSION['rights'] == "admin"){
+                        echo "<div>Site Admin - ";
+                        echo "<br>Yes: <input type=\"radio\" name=\"rights\" value=\"admin\">";
+                        echo "<br>No: <input type=\"radio\" name=\"rights\" value=\"player\" checked>";
+                        echo " </div>";
+                }
+        } 
+        else
+        {
+        	echo "<div>Site Admin";
+        	echo " <br>No: <input type=\"radio\" name=\"rights\" value=\"player\" checked>";
+            echo " </div>";
+            echo "<br>";
+            }
+        	
+        
+        
+        ?>
   <input type="submit" name="submit" value="Submit"/>
 </form>
 
