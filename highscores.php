@@ -51,64 +51,36 @@ include("includes/sqlconnect.inc");
 include("includes/functions.php");
 $idnum=1;
 
-	$allscores = mysql_query("SELECT * FROM scores");
-	$highid = array(
-	);
-	while($row = mysql_fetch_array( $allscores ))
+	$allscores = mysql_query("SELECT date, MAX(score) as score, scoreid, playerid FROM scores GROUP BY gameid"); // I don't know the field names you need obviously place those instead of field1 etc.
+	while($row = mysql_fetch_array($allscores))
 	{
-	$idnums=$row['gameid'];
-	$highid[]=$idnums;      
-	}
-while($idnum<=max($highid))
-{
-	$allscores = mysql_query("SELECT * FROM scores WHERE gameid ='$idnum'");
-	$array = array(
-	);
-	while($row = mysql_fetch_array( $allscores ))
-	{
-	$score=$row['score'];
-	$scoreid=$row['scoreid'];
-	$array[$scoreid]=$score;      
-	}
-	$high=doublemax($array);
-	$nameid = mysql_query("SELECT scoreid,playerid,score FROM scores WHERE scoreid='$high[i]'");
-	while($row = mysql_fetch_array($nameid))
-	{
-	$player=$row['playerid'];
-	}
-	$dateid = mysql_query("SELECT scoreid,date FROM scores WHERE scoreid='$high[i]'");
-	while($row = mysql_fetch_array($dateid))
-	{
-	if($row['date']=="")
-	{
-		$date="Unknown";
-	}
-	else
-	{
-		$date=$row['date'];
-	}
-	}
-	$name = mysql_query("SELECT playerid,player_initials FROM players WHERE playerid='$player'");
-	while($row = mysql_fetch_array($name))
-	{
-	$initials=$row['player_initials'];
-	}
-	$gamename = mysql_query("SELECT gameid,gamename FROM games WHERE gameid='$idnum'");
+	$score = $row['score'];
+	$date = $row['date'];
+	$playerid = $row['playerid'];
+	$id= $row['scoreid'];
+	$game = mysql_query("SELECT gameid FROM scores WHERE scoreid ='$id'");
+	$idgame = mysql_fetch_array($game);
+	$gamename = mysql_query("SELECT gameid,gamename FROM games WHERE gameid='$idgame[0]'");
 	while($row = mysql_fetch_array($gamename))
 	{
 	$game=$row['gamename'];
 	}
-
-	$idnum++;
-
-		echo "<tr>";
+	$name = mysql_query("SELECT playerid,player_initials FROM players WHERE playerid='$playerid'");
+	while($row = mysql_fetch_array($name))
+	{
+	$initials=$row['player_initials'];
+	}
+	
+	echo "<tr>";
 		echo '<td>'.$game.'</td>';
 		echo '<td>'.$initials.'</td>';
 		echo '<td>'.number_format($score).'</td>';
 		echo '<td>'.$date.'</td>';	
 	echo "</tr>";
-
+	
+	
 	}
+	
 
 echo "</table>";
 
