@@ -85,10 +85,7 @@ echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=playerlist.php">';
         } 
         else
         {
-        	echo "<div>Site Admin";
-        	echo " <br>No: <input type=\"radio\" name=\"rights\" value=\"player\" checked>";
-            echo " </div>";
-            echo "<br>";
+        	echo "<input type=\"hidden\" name=\"rights\" value=\"player\">";
             }
         	
         
