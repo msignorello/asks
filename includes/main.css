@@ -97,6 +97,12 @@ div.mainbody {
 	font-size: 10px;
 }
 
+div.bigmainbody {
+	font-family: arial;
+	color: black;
+	font-size: 12px;
+}
+
 div.warning {
 	font-family: arial;
 	color: red;
