@@ -66,9 +66,9 @@ echo '<META HTTP-EQUIV=Refresh CONTENT="2; URL=gamelist.php">';
 	<div>Lives / Plays Per Credit: <input type="text" size="3" maxlength="1" name="livespercred"/></div>
 	<div>Game Type: 
 		<select name="gametype">
-			<option value="cocktail">Cocktail</option>
+       <option value="upright">Upright</option>
+  		<option value="cocktail">Cocktail</option>
 			<option value="cabaret">Cabaret</option>
-			<option value="standup">Stand-Up</option>
 			<option value="bartop">Bartop</option>
 			<option value="cockpit">Cockpit</option>
 			<option value="pinball">Pinball</option>
