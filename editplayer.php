@@ -44,9 +44,6 @@
 
 include("includes/sqlconnect.inc");
 
-echo "loook  ".$_SESSION["adminID"]."    ".$_SESSION["pid"];
-//exit;
-
 
 if(!isset($_SESSION['pid'])){
 	header("location:login.php");
