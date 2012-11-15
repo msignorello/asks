@@ -19,7 +19,7 @@ die;
 }
 
 $checkname = "../install/installed";
-if (file_exists($checkname)){
+if (!file_exists($checkname)){
 }else{
 echo 'Looks like ASKS is already installed!</br>';
 echo 'Please goto <a href="./index.php">the index</a>';
