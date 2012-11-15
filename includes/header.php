@@ -1,4 +1,24 @@
 <table class="header" width="100%">
+
+<?php 
+
+// check to see if the system is installed already. if not, direct to installer. 
+$checkname = "install/installed";
+if (file_exists($checkname)){
+	
+}else{
+echo $checkname."does not exist...";	
+echo 'Looks like ASKS is NOT already installed!</br>';
+echo 'Please goto <a href="install/installer.php">the installer</a>';
+echo '<br><br>';
+echo 'If you are upgrading your installation and already have an sqlconnect.inc, create a file "INSTALLED" in the install folder. .';
+die;
+
+}
+
+?>
+
+
 	<tr><td>Today is: <?php echo date("l F dS Y");	?></td>
 	<td align="right">v0.0.5 </td></tr>
 
