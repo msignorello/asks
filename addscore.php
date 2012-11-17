@@ -3,6 +3,17 @@
 <head>
  
 	<link rel="stylesheet" type="text/css" href="includes/main.css" />
+	
+	
+	<script type="text/javascript" src="calendarDateInput.js">
+
+/***********************************************
+* Jason's Date Input Calendar- By Jason Moon http://calendar.moonscript.com/dateinput.cfm
+* Script featured on and available at http://www.dynamicdrive.com
+* Keep this notice intact for use.
+***********************************************/
+
+</script>
 
 </head>
 <body>
@@ -81,8 +92,10 @@ while($row = mysql_fetch_array( $games )){
 Score: 
 <input type="text" name="playerscore"/>
 <br>
-Date (MM/DD/YYYY): 
-<input type="text" name="date"/>
+Date: 
+<script>DateInput('date', true, 'MM-DD-YYYY')</script>
+<br>
+
 <input type="submit" name="submit" value="Submit"/>
 
 </form>
