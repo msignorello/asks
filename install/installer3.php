@@ -52,10 +52,12 @@ $query = mysql_query($testdb, $dbconnect);
 		$makedb = 'CREATE Database '.$dbname.';';
 		mysql_query($makedb, $dbconnect);
 		echo '<div class="notice">Done.</div>';
+	 mysql_select_db("$dbname");	
 	
 	}else{ 
 	
 		echo '<div class="warning">DB Exists Already.</div>';
+		mysql_select_db("$dbname");
 	}
 
 //-------------------
@@ -71,8 +73,8 @@ $query = mysql_query($testdb, $dbconnect);
 	
 	$gamequery = mysql_query($makegames, $dbconnect);
 
-	if (!gamequery){
-	echo "game table not created";
+	if (!$gamequery){
+	//echo "game table not created";
 	mysql_error();
 	die;
 	}else{
@@ -95,7 +97,7 @@ $query = mysql_query($testdb, $dbconnect);
 	
 	$playerquery = mysql_query($makeplayers, $dbconnect);
 
-	if (!playerquery){
+	if (!$playerquery){
 	echo "player table not created";
 	mysql_error();
 	die;
@@ -112,7 +114,7 @@ $query = mysql_query($testdb, $dbconnect);
 
 	$adminquery = mysql_query($addadmin, $dbconnect);
 
-	if (!adminquery){
+	if (!$adminquery){
 	echo "admin user not created";
 	mysql_error();
 	die;
@@ -133,7 +135,7 @@ $query = mysql_query($testdb, $dbconnect);
 
 	$scoresquery = mysql_query($addscores, $dbconnect);
 
-	if (!scoresquery){
+	if (!$scoresquery){
 	echo "scores table not created";
 	mysql_error();
 	die;
