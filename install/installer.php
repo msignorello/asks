@@ -7,8 +7,7 @@
 </head>
 <body>
 
-<?php
-session_start(); 
+<?php session_start(); 
 $_SESSION['pagecount']=1; //Set the base count of pages to 1 so that we know we are going in order and not skipping steps 
 $_SESSION['nextpage']=2; // Everything is good for next page
 
@@ -60,38 +59,43 @@ die;
 
 <?php
 
-$installedpath="./installed";
+$installedpath="../install";
 $installcheck=is_writable($installedpath);
 
 $includepath="../includes";
 $includecheck=is_writable($includepath);
 
 echo "Can I write to the install folder: ";
-if($installcheck != 1){
-		echo '<div class="warning">No</div>';	
+if($installcheck == 1){
+		echo '<div class="notice">Yes!</div>';	
 }else{
-		echo '<div class="notice">Yes!</div>';
+		echo '<div class="warning">No</div>';	
 }
 
 echo "<br>";
 
 echo "Can I write to the include folder: ";
-if($includecheck != 1){
-		echo '<div class="warning">No</div>';	
-}else{
+if($includecheck == 1){
 		echo '<div class="notice">Yes!</div>';
+}else{
+		echo '<div class="warning">No</div>';	
 }
 
 echo "<br>";
 
+$count = 0;
 $count = $includecheck + $installcheck;
 
-if($count=2){
+if($count == 2){
 		echo '<form action="installer2.php"><input type="submit" value="START"></form>';
 }else{
 		echo '<div class="bigwarning">Something Failed, need to correct permissions before proceeding. Please refresh the page.</div>';
 }
 
+  //echo "variables:<br>";
+  //echo $installcheck."install check<br>";
+  //echo $includecheck."include check<br>";
+  //echo $count."count";
 
 ?>
 
