@@ -48,7 +48,6 @@ echo '<table cellpadding="0" class="content" cellspacing="0" width="100%" >';
 echo '<tr><th>Game</th><th>Initials</th><th>Score</th><th>Date</th></tr>';
 
 include("includes/sqlconnect.inc");
-include("includes/functions.php");
 $idnum=1;
 
 	$allscores = mysql_query("SELECT date, MAX(score) as score, scoreid, playerid FROM scores GROUP BY gameid"); // I don't know the field names you need obviously place those instead of field1 etc.
