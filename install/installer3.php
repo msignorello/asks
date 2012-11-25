@@ -80,7 +80,45 @@ $query = mysql_query($testdb, $dbconnect);
 	}else{
 	echo '<div class="notice">Game Table Created...</div>';
 	}
+//-------------------
+
+	$makenews = 'CREATE TABLE IF NOT EXISTS `news` (
+								`news_id` int(11) NOT NULL AUTO_INCREMENT,
+								`news_title` varchar(160) NOT NULL,
+								`news_author` varchar(30) NOT NULL,
+								`news_date` varchar(30) NOT NULL,
+								`news_body` blob NOT NULL,
+								PRIMARY KEY (`news_id`)
+								) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6;';
 	
+	$newsquery = mysql_query($makenews, $dbconnect);
+
+	if (!$newsquery){
+	//echo "game table not created";
+	mysql_error();
+	die;
+	}else{
+	echo '<div class="notice">News Table Created...</div>';
+	}
+//-------------------
+
+	$addnews = "insert into `news` (
+					`news_title`, `news_author`, `news_date`,
+					`news_body`) values ('Greetings', 'Default', 
+					'August 4th, 1997', 'Welcome to the arcade scorekeeper system. 
+					This site is designed to keep track of all high scores for games 
+					that can be found in a home or business arcade.');";
+
+	$addnewsquery = mysql_query($addnews, $dbconnect);
+
+	if (!$addnewsquery){
+	echo "news article not added";
+	mysql_error();
+	die;
+	}else{
+	echo '<div class="notice">Generated first news article...</div>';
+	}	
+
 //-------------------
 
 	$makeplayers = 'CREATE TABLE IF NOT EXISTS `players` (
