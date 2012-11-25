@@ -33,11 +33,41 @@
 					<td valign="top" width="440">
 
 <!-- new table for showing the multiple server info -->				
-						<table cellspacing="0" cellpadding="0" class="content">
-							<tr><td><div class="title">Greetings<Br><br></div></td></tr>
-							<tr><td><div>Welcome to the arcade scorekeeper system. This site is designed to keep track of all high scores for games that can be found in a home or business arcade. </div></td></tr>
+						<table cellspacing="0" cellpadding="0" class="content" span="100%" >
+<?php
+
+	
+		include("includes/sqlconnect.inc");
+
+		$allnews = mysql_query("SELECT * FROM news ORDER BY news_id DESC");
+		$num_rows = mysql_num_rows($allnews);
+		
+		while($row = mysql_fetch_array( $allnews )){
+
+						$newstitle=$row['news_title'];
+						$newsauthor=$row['news_author'];
+			  		$newsbody=$row['news_body'];
+							$newsdate=$row['news_date'];
+							
+							echo '<tr width="100%"><td colspan="2"><div class="title">'.$newstitle.'</div></td><tr>';
+							echo '<tr width="100%"><td><div class="content">Written By: '.$newsauthor.'</td></tr>';
+							echo '<tr width="100%"><td> Sibmitted On: '.$newsdate.'</td></tr>';
+							echo '<tr width="100%"><td colspan="2"><div class="content"><br>'.$newsbody.'<Br><br></div></td><tr>';
+				}
+
+
+?>
+
+
+
+							<tr><td></td></tr>
 							</td></tr>
-							<tr><td><br></td></tr>
+							<tr><td>
+								
+							
+							
+							
+							</td></td></tr>
 						</table>							
 						
 					</td>				
