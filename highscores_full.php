@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+	<meta http-equiv="refresh" content="300">
  
 	<link rel="stylesheet" type="text/css" href="includes/main.css" />
 
