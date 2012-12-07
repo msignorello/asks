@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="refresh" content="300">
  
-	<link rel="stylesheet" type="text/css" href="includes/main.css" />
+	<?php include ("includes/functions.php"); theme_set(); ?>
 
 </head>
 <body>
