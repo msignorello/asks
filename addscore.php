@@ -2,7 +2,7 @@
 <html>
 <head>
  
-	<link rel="stylesheet" type="text/css" href="includes/main.css" />
+	<?php include ("includes/functions.php"); theme_set(); ?>
 	
 	
 	<script type="text/javascript" src="calendarDateInput.js">
