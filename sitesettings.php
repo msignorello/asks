@@ -2,7 +2,7 @@
 <html>
 <head>
  
-	<link rel="stylesheet" type="text/css" href="includes/main.css" />
+	<?php include ("includes/functions.php"); theme_set(); ?>
 
 </head>
 <body>
@@ -44,7 +44,7 @@
 								<table class="content" border="0">
 									<tr>
 										<td width="100px"><div class="subunderline">Theme Selection:</div></td>
-										<td><input type="radio" name="theme" value="default" checked>Default</td>
+										<td><input type="radio" name="theme" value="main" checked>Default</td>
 										<td><input type="radio" name="theme" value="dark">Dark</td>
 									</tr>
 									<tr><td><input type="submit" name="theme" value="Submit"></td></tr>								
