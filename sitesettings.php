@@ -47,7 +47,7 @@
 										<td><input type="radio" name="theme" value="main" checked>Default</td>
 										<td><input type="radio" name="theme" value="dark">Dark</td>
 									</tr>
-									<tr><td><input type="submit" name="theme" value="Submit"></td></tr>								
+									<tr><td><input type="submit" name="submit" value="Submit"></td></tr>								
 								</table>
 								</form>							
 							</div><td></tr>
