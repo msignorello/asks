@@ -1,0 +1,133 @@
+table.main {
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: inset;
+	border-color: white;
+	border-collapse: separate;
+	background-color: black;
+	width: 640px;
+}
+
+table.header {
+	font-family: arial;
+	border-width: 0px;
+	border-color: white;
+	border-style: inset;
+	color: white;	
+	font-size: 10px;
+	font-weight:bold;
+	background-color: 000000;
+}
+
+table.header tr{
+	vertical-align:text-top;
+}
+
+table.content {
+	font-family: arial;
+	border-width: 0px;
+	border-color: white;
+	border-style: inset;
+	color: white;	
+	font-size: 10px;
+	background-color: black;
+}
+
+table.content th{
+	color: white;	
+	font-size: 14px;
+	text-align: left;
+}
+
+div.header {
+	font-family: arial;
+	color: white;
+	font-size: 12px;
+}
+
+div.navigation {
+	font-family: arial;
+	color: white;
+	font-size: 12px;
+}
+
+div.footer {
+	font-family: arial;
+	color: black;
+	font-size: 10px;
+	background-color: ffffff;
+}
+
+div.title {
+	font-family: arial;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+}
+
+div.subtitle {
+	font-family: arial;
+	color: red;
+	font-style:italic;
+	font-size: 10px;
+}
+
+div.subunderline {
+	text-decoration:underline;
+	font-family: arial;
+	color: white;
+	font-style:italic;
+	font-size: 10px;
+
+}
+
+div.bigsubunderline {
+	text-decoration:underline;
+	font-family: arial;
+	color: white;
+	font-style:italic;
+	font-size: 12px;
+}
+
+div.mainbody {
+	font-family: arial;
+	color: white;
+	font-size: 10px;
+}
+
+div.bigmainbody {
+	font-family: arial;
+	color: white;
+	font-size: 12px;
+}
+
+div.warning {
+	font-family: arial;
+	color: red;
+	font-size: 10px;
+}
+
+div.notice {
+	font-family: arial;
+	color: green;
+	font-size: 10px;
+}
+
+div.bigwarning {
+	font-family: arial;
+	color: red;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+a:link {
+color:#FFFFFF;
+
+}
+
+a:visited {
+color:#FFFFFF;
+
+}
