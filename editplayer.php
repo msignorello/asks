@@ -58,7 +58,7 @@ if(isset($_REQUEST["mode"])){
 		$pid = $_SESSION['pid'];
 		}
 }
-
+	echo $pid;
    $sql="SELECT * FROM players WHERE playerid = ".$pid;
    $query = mysql_query($sql);
    
@@ -77,6 +77,7 @@ if(isset($_REQUEST["mode"])){
 
 
 				<form id="editplayer" method="post" action="editplayer.php">
+					<input type="hidden" name="pid" value= <?php echo $pid?> >
 					<div>First Name: <input type="text" name="first" value="<?php echo $editfirst ?>"/></div>
 					<div>Last Name: <input type="text" name="last" value="<?php echo $editlast ?>"/></div>
 					<div>Highscore Initials: <input type="text" name="initial" value="<?php echo $editinitials ?>"/></div>
@@ -118,6 +119,7 @@ if(isset($_POST['editplayer'])) {
 	$password = trim($_POST['password']);
 	$email = trim($_POST['email']);
 	$rights = trim($_POST['rights']);
+	$pid = trim($_POST['pid']);
 	
 //	$query="INSERT INTO players(player_first,player_last,player_initials,username,password,email,accesslevel) VALUES ('$firstname','$lastname','$initials','$username','$password','$email','$rights') WHERE playerid = ".$pid;
 
@@ -138,6 +140,7 @@ $query .= " email='".$email."' , ";
 $query .= " accesslevel='".$rights."'  ";
  
 $query .= " where playerid ='".$pid."'";
+
 
 
 	if (!mysql_query($query)){
