@@ -14,10 +14,10 @@ $path = "../images/header.png";
 $move = move_uploaded_file($tmpfile,$path);
 
 if($move == false) {
-  echo '<META HTTP-EQUIV=Refresh CONTENT="1; URL="sitesettings.php">';
+  echo '<META HTTP-EQUIV=Refresh CONTENT="3; URL=../sitesettings.php">';
   echo "File Upload FAILED! - Please make sure the image is less than 1MB - 1,000KB";
 } else{
-  echo '<META HTTP-EQUIV=Refresh CONTENT="1; URL="index.php">';
+  echo '<META HTTP-EQUIV=Refresh CONTENT="3; URL=../index.php">';
   echo "File Uploaded!";
 }
 
