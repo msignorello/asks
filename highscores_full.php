@@ -46,7 +46,8 @@ echo '<tr><th>Game</th><th>Initials</th><th>Score</th><th>Date</th></tr>';
 include("includes/sqlconnect.inc");
 $idnum=1;
 
-	$allscores = mysql_query("SELECT date, MAX(score) as score, scoreid, playerid FROM scores GROUP BY gameid"); // I don't know the field names you need obviously place those instead of field1 etc.
+	$allscores = mysql_query("SELECT date,score,scoreid,playerid FROM scores WHERE (gameid, score) IN
+(SELECT gameid, MAX(score) from scores GROUP BY gameid)"); // I don't know the field names you need obviously place those instead of field1 etc.
 	while($row = mysql_fetch_array($allscores))
 	{
 	$score = $row['score'];
