@@ -20,7 +20,7 @@ die;
 
 
 	<tr><td>Today is: <?php echo date("l F dS Y");	?></td>
-	<td align="right">v0.0.6 </td></tr>
+	<td align="right">v1.0.0 </td></tr>
 
 	<tr><td>Local Time: <?php echo date("h:i:s A");?></td>
 	<td align="right">
