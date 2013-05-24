@@ -1,12 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
- 
-	<link rel="stylesheet" type="text/css" href="../includes/main.css" />
-
-</head>
-<body>
-
 <?php
 session_start(); 
 $_SESSION['pagecount']=2 ; //Set the page we are on. 
@@ -17,7 +8,17 @@ echo 'Please start from <a href="installer.php">The Beginning</a>';
 die;
 	
 }
+?>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ 
+	<link rel="stylesheet" type="text/css" href="../includes/main.css" />
+
+</head>
+<body>
+<?php
 if(isset($_POST['submit'])) {
 		$dbadmin = $_POST['dbadmin'];
 		$dbadminpass = $_POST['dbadminpass'];
