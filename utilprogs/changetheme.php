@@ -1,3 +1,4 @@
+<?php session_start(); ob_start(); ?>
 <?php
 	
 	$theme_new= trim($_POST['theme']);
