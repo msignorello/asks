@@ -1,3 +1,4 @@
+<?php session_start(); ob_start(); ?>
 <?php
 
 include("../includes/sqlconnect.inc");
