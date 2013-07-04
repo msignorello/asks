@@ -1,3 +1,5 @@
+<?php session_start(); ob_start(); ?>
+
 <html>
 <head>
 
